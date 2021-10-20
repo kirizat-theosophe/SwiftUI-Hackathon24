@@ -6,21 +6,14 @@
 //
 
 import Foundation
-/*let url = URL(string: "http://www.stackoverflow.com")
-let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-    let jsonDecoder = JSONDecoder()
-    let responseModel = try jsonDecoder.decode(Json4Swift_Base.self, from: data!)
-
-}
-task.resume()*/
-//Data needed by view
 
 class HackathonViewModel: ObservableObject {
-    @Published var imageDog: String = ""
-    @Published var title: String = ""
+    @Published var imageItem: String = ""
+    @Published var name: String = ""
+    @Published var name_extra: String = ""
     @Published var descriptionText: String = ""
-    @Published var sellPrice: String = ""
-    @Published var originalPrice: String = ""
+    @Published var gross_price: String = ""
+    @Published var gross_unit_price: String = ""
     @Published var url: URL?
     
   
@@ -31,7 +24,7 @@ class HackathonViewModel: ObservableObject {
     }
     
     func fetchHackathon(){
-        guard let url = URL(string: "https://dog.ceo/api/breeds/image/random") else {
+        guard let url = URL(string: "https://api.jsonbin.io/b/60832bec4465377a6bc6b6e6") else {
             return
             }
         
@@ -45,11 +38,11 @@ class HackathonViewModel: ObservableObject {
                 let model = try JSONDecoder().decode(HackathonModel.self, from: data)
                 
                 DispatchQueue.main.async { [weak self] in
-                    self?.imageDog = model.imageDog ?? "No Title"
-                    //self?.title = model.title ?? "No Title"
-                    self?.descriptionText = model.dog.imageDog ?? "No Description"
-                    //self?.sellPrice = model.sellPrice ?? "No Title"
-                    //self?.originalPrice = model.originalPrice ?? "No Title"
+                    self?.imageItem = model.imageItem ?? "No Title"
+                    //self?.name = model.name ?? "No Title"
+                    self?.descriptionText = model.item.imageItem ?? "No Description"
+                    //self?.gross_price = model.gross_price ?? "No Title"
+                    //self?.gross_unit_price = model.gross_unit_price ?? "No Title"
                     //self?.url = model.url ?? "No Title"
                     
                     

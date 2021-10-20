@@ -19,23 +19,46 @@ struct ContentView: View {
                 NavigationLink(
                     destination: ImageDetailView(imageInfo: mt),
                     label: {
-                        Image(mt.imageDog)
+                        Image(mt.imageItem)
                             .resizable()
                             .scaledToFit()
                             .frame(height: 90)
                             .padding(.horizontal, 7)
                         VStack(alignment: .leading, spacing: 10){
-                            Text(mt.title)
+                            Text(mt.name)
                                 .fontWeight(.medium)
                                 .font(.headline)
-                            Text("(SellPrice)")
+                            Text(mt.gross_price)
                                 .fontWeight(.medium)
                                 .font(.subheadline)
+                                .padding(.vertical, 2)
                                 
                         }
-                    })
+                        
+                        HStack(spacing: 30){
+                                Text("-")
+                                    .bold()
+                                Text("*")
+                                    .bold()
+                                Text("+")
+                                    .bold()
+                            }
+                        })
+                VStack{
+                    HStack(spacing: 75){
+                        Text("Total")
+                            .bold()
+                            .font(.title)
+                            .foregroundColor(.green)
+                        Text("Price")
+                            .bold()
+                            .font(.title)
+                            .foregroundColor(.green)
+                    }
+                }
                 
-            }.navigationTitle("SwiftUIHackathon")
+            }.navigationTitle("ShoppingItems")
+            
         }
     }
 }

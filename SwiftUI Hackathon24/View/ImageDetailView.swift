@@ -14,27 +14,27 @@ struct ImageDetailView: View {
     var body: some View {
         
         VStack{
-            Image(imageInfo.imageDog)
+            Image(imageInfo.imageItem)
                 .resizable()
                 .scaledToFit()
                 .frame(height: 210)
                 .cornerRadius(12.0)
-            Text(imageInfo.title)
+            Text(imageInfo.name)
                 .font(.title2)
                 .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
                 .padding(.vertical, 4)
             
             HStack(spacing: 60){
-                Text("Kr \(imageInfo.sellPrice)")
+                Text("Kr \(imageInfo.gross_price)")
                     .bold()
                     .font(.title3)
                     .foregroundColor(.green)
-                Text("Kr \(imageInfo.originalPrice)")
+                Text("Kr \(imageInfo.gross_unit_price)")
                     .font(.title3)
                     .strikethrough()
                     .padding(.vertical, 15)
             }
-            HStack(spacing: 60){
+            /*HStack(spacing: 60){
                 VStack{
                     Text("360")
                         .font(.title)
@@ -53,7 +53,7 @@ struct ImageDetailView: View {
                         .bold()
                     Text("Third Qual")
                 }
-            }
+            }*/
             
             Text(imageInfo.description)
                 .padding()
